@@ -251,6 +251,7 @@
         <!--Item-->
         <scene sceneID="OOn-Kh-GEO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyo-rh-OPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="637-ew-7qp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Nj5-7W-wXk"/>
                     <toolbarItems/>
@@ -263,9 +264,8 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="XLC-Qq-Djf"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vyo-rh-OPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="90"/>
+            <point key="canvasLocation" x="396" y="90"/>
         </scene>
     </scenes>
 </document>
