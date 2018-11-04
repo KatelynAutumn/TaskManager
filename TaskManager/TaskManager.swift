@@ -14,7 +14,6 @@ class TaskManager {
     private init() {
         let testOne = Task(Title: "Grocery-Shopping", Details: "sdfsd", Completed: false, CompleteDate: nil)
         let testTwo = Task(Title: "BLAH BLAH", Details: "ANNOYED", Completed: true, CompleteDate: nil)
-        
         allTasks = [[testOne], [testTwo]]
     }
     
