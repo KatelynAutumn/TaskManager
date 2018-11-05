@@ -17,6 +17,9 @@
 		AF1164A62188AA750023F068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF1164A42188AA750023F068 /* LaunchScreen.storyboard */; };
 		AF477DBF218A31A30036A7FB /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF477DBE218A31A30036A7FB /* TaskManager.swift */; };
 		AF477DC5218CCC770036A7FB /* ViewDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF477DC4218CCC770036A7FB /* ViewDetailsViewController.swift */; };
+		AF477DC7218F91BA0036A7FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF477DC6218F91BA0036A7FB /* LoginViewController.swift */; };
+		AF477DC9219088EB0036A7FB /* EditPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF477DC8219088EB0036A7FB /* EditPageViewController.swift */; };
+		AF477DCB219094920036A7FB /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF477DCA219094920036A7FB /* CompleteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		AF1164A72188AA750023F068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF477DBE218A31A30036A7FB /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		AF477DC4218CCC770036A7FB /* ViewDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailsViewController.swift; sourceTree = "<group>"; };
+		AF477DC6218F91BA0036A7FB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AF477DC8219088EB0036A7FB /* EditPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageViewController.swift; sourceTree = "<group>"; };
+		AF477DCA219094920036A7FB /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,9 @@
 				AF0400432188CD8F007E2CCA /* AddGameViewController.swift */,
 				AF477DBE218A31A30036A7FB /* TaskManager.swift */,
 				AF477DC4218CCC770036A7FB /* ViewDetailsViewController.swift */,
+				AF477DC6218F91BA0036A7FB /* LoginViewController.swift */,
+				AF477DC8219088EB0036A7FB /* EditPageViewController.swift */,
+				AF477DCA219094920036A7FB /* CompleteViewController.swift */,
 			);
 			path = TaskManager;
 			sourceTree = "<group>";
@@ -153,8 +162,11 @@
 				AF477DBF218A31A30036A7FB /* TaskManager.swift in Sources */,
 				AF0400442188CD8F007E2CCA /* AddGameViewController.swift in Sources */,
 				AF11649E2188AA740023F068 /* ViewController.swift in Sources */,
+				AF477DCB219094920036A7FB /* CompleteViewController.swift in Sources */,
 				AF04003C2188ABF6007E2CCA /* Task.swift in Sources */,
+				AF477DC7218F91BA0036A7FB /* LoginViewController.swift in Sources */,
 				AF477DC5218CCC770036A7FB /* ViewDetailsViewController.swift in Sources */,
+				AF477DC9219088EB0036A7FB /* EditPageViewController.swift in Sources */,
 				AF11649C2188AA740023F068 /* AppDelegate.swift in Sources */,
 				AF04003E2188AFB8007E2CCA /* UncompletedTaskTableViewCell.swift in Sources */,
 			);

@@ -12,11 +12,13 @@ class TaskManager {
     static let sharedInstance = TaskManager()
 
     private init() {
-        let testOne = Task(Title: "Grocery-Shopping", Details: "sdfsd", Completed: false, CompleteDate: nil)
-        let testTwo = Task(Title: "BLAH BLAH", Details: "ANNOYED", Completed: true, CompleteDate: nil)
+        let testOne = Task(Title: "Grocery-Shopping", Details: "sdfsd", Completed: false, CompleteDate: "10-23-2020", Priority: 4)
+        let testTwo = Task(Title: "BLAH BLAH", Details: "ANNOYED", Completed: true, CompleteDate: "10-23-2020", Priority: 2)
         allTasks = [[testOne], [testTwo]]
     }
     
+    let noUnavailableTasks = "No Uncompleted Tasks"
+    let noAvailableTasks = "No Completed Tasks"
     
     var allTasks: [[Task]] = []
 
@@ -50,3 +52,4 @@ class TaskManager {
         }
     }
 }
+

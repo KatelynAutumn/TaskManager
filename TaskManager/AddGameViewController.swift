@@ -16,6 +16,7 @@ class AddGameViewController: UIViewController {
     
     @IBOutlet weak var NewDetails: UITextView!
     
+    @IBOutlet weak var DatePicker: UIDatePicker!
     
     var newTask: Task!
     
@@ -46,13 +47,17 @@ class AddGameViewController: UIViewController {
     
     
     @IBAction func SubmitButtonTapped(_ sender: Any) {
+        let dateFormatr = DateFormatter()
+        dateFormatr.dateFormat = "MM/dd/yyyy"
+        let stringDate = dateFormatr.string(from: (DatePicker?.date)!)
+        let date = stringDate
         guard let title = NewTitle.text, !title.isEmpty,
             let details = NewDetails.text, !details.isEmpty
                 else {
                 showErrorAlert()
                 return
         }
-        newTask = Task(Title: title, Details: details, Completed: false, CompleteDate: nil)
+        newTask = Task(Title: title, Details: details, Completed: false, CompleteDate: date, Priority: 5)
         
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
     }

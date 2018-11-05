@@ -40,8 +40,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.TaskTitle.text = taskAtIndex.Title
         if taskAtIndex.Completed {
             cell.CompletedStatus.text = "Complete"
+            taskAtIndex.CompleteDate = nil
         } else {
             cell.CompletedStatus.text = "Uncompleted"
+        }
+        if taskAtIndex.CompleteDate == nil {
+            cell.DueDate.text = " "
+        } else {
+            cell.DueDate.text = taskAtIndex.CompleteDate
         }
         return cell
     }
@@ -49,9 +55,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Uncompleted"
+            if TaskManager.sharedInstance.allTasks[0].count == 0 {
+                return "There are no uncompleted tasks."
+            } else {
+                return "Uncompleted"
+            }
         case 1:
+            if TaskManager.sharedInstance.allTasks[1].count == 0 {
+                return "There are no completed tasks."
+            } else {
             return "Completed"
+            }
         default:
             return nil
         }
@@ -60,6 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -73,12 +88,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //We need to pass through the Game that we'll be editing.
             destination.currentTask = currentTask
         }
+        if let destination = segue.destination as? EditPageViewController {
+            destination.selectedTask = currentTask
+        }
+        if let destination = segue.destination as? CompleteViewController {
+            destination.Task = currentTask
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentTask = TaskManager.sharedInstance.getTask(at: indexPath.section, row: indexPath.row)
         self.performSegue(withIdentifier: "showDetails", sender: self)
     }
+    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
@@ -90,15 +112,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let taskForIndex = TaskManager.sharedInstance.getTask(at: indexPath.section, row: indexPath.row)
         let title = taskForIndex.Completed ? "Uncompleted" : "Completed"
         let checkComplete = UITableViewRowAction(style: .normal, title: title) { _,_ in
+            self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.section, row: indexPath.row)
+            if taskForIndex.Completed == true {
+                TaskManager.sharedInstance.completeGame(section: indexPath.section, row: indexPath.row)
+                self.performSegue(withIdentifier: "CheckComplete", sender: self)
+            } else {
             TaskManager.sharedInstance.completeGame(section: indexPath.section, row: indexPath.row)
             tableView.reloadData()
+            }
+        }
+        let editTask = UITableViewRowAction(style: .normal, title: "Edit") { _,_ in
+            self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.section, row: indexPath.row)
+            self.performSegue(withIdentifier: "ShowEditScreen", sender: self)
         }
         
+        deleteTask.backgroundColor = UIColor.red
+        checkComplete.backgroundColor = UIColor.gray
+        editTask.backgroundColor = UIColor.red
         
         
-
-        
-        return [deleteTask, checkComplete]
+        return [deleteTask, checkComplete, editTask]
         
     }
     

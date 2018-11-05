@@ -14,6 +14,8 @@ class UncompletedTaskTableViewCell: UITableViewCell {
     
     @IBOutlet weak var CompletedStatus: UILabel!
     
+    @IBOutlet weak var DueDate: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

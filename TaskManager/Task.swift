@@ -13,12 +13,14 @@ class Task {
     var Title: String
     var Details: String
     var Completed: Bool
-    var CompleteDate: Date?
+    var CompleteDate: String?
+    var Priority: Int
     
-    init(Title: String, Details: String, Completed: Bool, CompleteDate: Date?) {
+    init(Title: String, Details: String, Completed: Bool, CompleteDate: String?, Priority: Int) {
         self.Title = Title
         self.Details = Details
         self.Completed = Completed
+        self.Priority = Priority 
     }
     
 }
