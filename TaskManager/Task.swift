@@ -20,7 +20,7 @@ class Task {
         self.Title = Title
         self.Details = Details
         self.Completed = Completed
-        self.Priority = Priority 
+        self.Priority = Priority
     }
     
 }

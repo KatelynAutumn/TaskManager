@@ -80,6 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        TaskManager.sharedInstance.sortArrays()
         TableView.reloadData()
     }
  
@@ -93,6 +94,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         if let destination = segue.destination as? CompleteViewController {
             destination.Task = currentTask
+        }
+        if let destination = segue.destination as? AddGameViewController {
+            destination.newTask = currentTask
         }
     }
     

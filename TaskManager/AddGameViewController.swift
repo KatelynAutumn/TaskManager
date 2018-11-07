@@ -18,7 +18,10 @@ class AddGameViewController: UIViewController {
     
     @IBOutlet weak var DatePicker: UIDatePicker!
     
+    @IBOutlet weak var Priority: UISegmentedControl!
+    
     var newTask: Task!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +54,14 @@ class AddGameViewController: UIViewController {
         dateFormatr.dateFormat = "MM/dd/yyyy"
         let stringDate = dateFormatr.string(from: (DatePicker?.date)!)
         let date = stringDate
+        let priority = Priority.selectedSegmentIndex
         guard let title = NewTitle.text, !title.isEmpty,
             let details = NewDetails.text, !details.isEmpty
                 else {
                 showErrorAlert()
                 return
         }
-        newTask = Task(Title: title, Details: details, Completed: false, CompleteDate: date, Priority: 5)
+        newTask = Task(Title: title, Details: details, Completed: false, CompleteDate: date, Priority: priority)
         
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
     }

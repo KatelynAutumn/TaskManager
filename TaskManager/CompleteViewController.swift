@@ -16,9 +16,12 @@ class CompleteViewController: UIViewController {
     
     @IBOutlet weak var DatePicker: UIDatePicker!
     
+    @IBOutlet weak var Priority: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        DatePicker.isEnabled = false
         
 
         // Do any additional setup after loading the view.
@@ -52,10 +55,12 @@ class CompleteViewController: UIViewController {
     
     
     @IBAction func SubmitChange(_ sender: Any) {
+        let priority = Priority.selectedSegmentIndex
         let dateFormatr = DateFormatter()
         dateFormatr.dateFormat = "MM/dd/yyyy"
         let stringDate = dateFormatr.string(from: (DatePicker.date))
         Task.CompleteDate = stringDate
+        Task.Priority = priority
         self.performSegue(withIdentifier: "SubmitDueDate", sender: self)
     }
     

@@ -17,7 +17,7 @@ class EditPageViewController: UIViewController {
     
     @IBOutlet weak var DetailsField: UITextView!
     
-    
+    @IBOutlet weak var Priority: UISegmentedControl!
     
     
     override func viewDidLoad() {
@@ -48,7 +48,10 @@ class EditPageViewController: UIViewController {
         self.present(errorAlert, animated: true, completion: nil)
     }
 
+    
+
     @IBAction func EditTask(_ sender: Any) {
+        let priority = Priority.selectedSegmentIndex
         guard let newTitle = TitleField.text, !newTitle.isEmpty,
         let newDetails = DetailsField.text, !newDetails.isEmpty
         else {
@@ -57,6 +60,7 @@ class EditPageViewController: UIViewController {
         }
         selectedTask.Title = newTitle
         selectedTask.Details = newDetails
+        selectedTask.Priority = priority
         self.performSegue(withIdentifier: "SubmitNewTask", sender: self)
     }
 }
